@@ -19,9 +19,9 @@ const app=express()
 const port=5000
 app.use(cors())
 
-app.use(express.static(path.join(__dirname,'./ecommerce-app/build')))
+app.use(express.static(path.join(__dirname,'./ecommerce-web/build')))
 app.get('*',(req,res)=>{
-    res.sendFile(path.join(__dirname,'./ecommerce-app/build/index.html'))
+    res.sendFile(path.join(__dirname,'./ecommerce-web/build/index.html'))
 })
  
 
