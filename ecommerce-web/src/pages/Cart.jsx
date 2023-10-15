@@ -168,7 +168,7 @@ const Button = styled.button`
 const Cart = () => {
     const cart = useSelector(state => state.cart)
     const user=useSelector(state=>state.user.currentUser)
-    console.log(user);
+    
     const [stripeToken,setStripeToken]=useState(null)
   const onToken=(token)=>{
     setStripeToken(token)
@@ -187,7 +187,7 @@ const Cart = () => {
       }
     }
     stripeToken && makeRequest();
-  },[stripeToken,cart.total])
+  },[stripeToken,cart.total,user.accessToken])
     return (
         <Conatiner>
             <Navbar />
