@@ -27,12 +27,12 @@ app.get('*',(req,res)=>{
 
 
 app.use(express.json())
-app.use('/users',userRouter)
-app.use('/auth',authRouter)
-app.use('/products',productRouter)
-app.use('/orders',orderRouter)
-app.use('/carts',cartRouter)
-app.use('/checkout',stripeRoute)
+app.use('/api/users',userRouter)
+app.use('/api/auth',authRouter)
+app.use('/api/products',productRouter)
+app.use('/api/orders',orderRouter)
+app.use('/api/carts',cartRouter)
+app.use('/api/checkout',stripeRoute)
 
 
 
