@@ -19,13 +19,6 @@ const app=express()
 const port=5000
 app.use(cors())
 
-app.use(express.static(path.join(__dirname,'./ecommerce-web/build')))
-app.get('*',(req,res)=>{
-    res.sendFile(path.join(__dirname,'./ecommerce-web/build/index.html'))
-})
- 
-
-
 app.use(express.json())
 app.use('/api/users',userRouter)
 app.use('/api/auth',authRouter)
@@ -34,6 +27,10 @@ app.use('/api/orders',orderRouter)
 app.use('/api/carts',cartRouter)
 app.use('/api/checkout',stripeRoute)
 
+app.use(express.static(path.join(__dirname,'./ecommerce-web/build')))
+app.get('*',(req,res)=>{
+    res.sendFile(path.join(__dirname,'./ecommerce-web/build/index.html'))
+})
 
 
 app.listen(process.env.PORT||port,(req,res)=>{
